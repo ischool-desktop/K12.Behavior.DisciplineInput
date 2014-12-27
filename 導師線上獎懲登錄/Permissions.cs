@@ -15,12 +15,12 @@ namespace K12.Behavior.DisciplineInput
                 return FISCA.Permission.UserAcl.Current[教師獎懲登錄設定].Executable;
             }
         }
-        public static string 獎懲批次修改_教師 { get { return "K12.Sports.FitnessInput.Edit.cs"; } }
-        public static bool 獎懲批次修改_教師權限
+        public static string 核可教師獎懲建議 { get { return "K12.Sports.FitnessInput.Edit.cs"; } }
+        public static bool 核可教師獎懲建議權限
         {
             get
             {
-                return FISCA.Permission.UserAcl.Current[獎懲批次修改_教師].Executable;
+                return FISCA.Permission.UserAcl.Current[核可教師獎懲建議].Executable;
             }
         }
     }

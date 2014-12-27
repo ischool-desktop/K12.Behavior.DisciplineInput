@@ -95,6 +95,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApprovedForm\ApprovedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApprovedForm\ApprovedForm.designer.cs">
+      <DependentUpon>ApprovedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigObj.cs" />
     <Compile Include="InputDateSettingForm.cs">
       <SubType>Form</SubType>
@@ -108,11 +114,11 @@
     <Compile Include="MeritAndDemeritControl\ChangeResonBatch.designer.cs">
       <DependentUpon>ChangeResonBatch.cs</DependentUpon>
     </Compile>
-    <Compile Include="MeritAndDemeritControl\ChangeTextForm.cs">
+    <Compile Include="ApprovedForm\SimpleTextForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MeritAndDemeritControl\ChangeTextForm.designer.cs">
-      <DependentUpon>ChangeTextForm.cs</DependentUpon>
+    <Compile Include="ApprovedForm\SimpleTextForm.designer.cs">
+      <DependentUpon>SimpleTextForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MeritAndDemeritControl\CompleteForm.cs">
       <SubType>Form</SubType>
@@ -121,12 +127,6 @@
       <DependentUpon>CompleteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MeritAndDemeritControl\DataGridViewExport.cs" />
-    <Compile Include="MeritAndDemeritControl\MerDemEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MeritAndDemeritControl\MerDemEditForm.designer.cs">
-      <DependentUpon>MerDemEditForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MeritAndDemeritControl\ModifyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,7 +148,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="tools\tool.cs" />
-    <Compile Include="UDT\FitnessInputDateRecord.cs" />
+    <Compile Include="UDT\DisciplineRequestRecord.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Library\Aspose.Cells.dll" />
@@ -193,9 +193,13 @@
     <Content Include="Library\SmartSchool.Customization.PlugIn.xml" />
     <Content Include="Library\SmartSchool.ErrorReporting.dll" />
     <Content Include="Library\SmartSchool.ErrorReporting.xml" />
-    <None Include="Resources\star_write_64.png" />
+    <None Include="Resources\核可教師獎懲建議.png" />
+    <None Include="Resources\設定.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ApprovedForm\ApprovedForm.resx">
+      <DependentUpon>ApprovedForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputDateSettingForm.resx">
       <DependentUpon>InputDateSettingForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -203,14 +207,11 @@
     <EmbeddedResource Include="MeritAndDemeritControl\ChangeResonBatch.resx">
       <DependentUpon>ChangeResonBatch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MeritAndDemeritControl\ChangeTextForm.resx">
-      <DependentUpon>ChangeTextForm.cs</DependentUpon>
+    <EmbeddedResource Include="ApprovedForm\SimpleTextForm.resx">
+      <DependentUpon>SimpleTextForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeritAndDemeritControl\CompleteForm.resx">
       <DependentUpon>CompleteForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MeritAndDemeritControl\MerDemEditForm.resx">
-      <DependentUpon>MerDemEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MeritAndDemeritControl\ModifyForm.resx">
       <DependentUpon>ModifyForm.cs</DependentUpon>
@@ -221,8 +222,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,9 +5,9 @@ C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\bin\Deb
 C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.dll
 C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.pdb
 C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.ChangeResonBatch.resources
-C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.ChangeTextForm.resources
 C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.CompleteForm.resources
-C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.MerDemEditForm.resources
 C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.ModifyForm.resources
 C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.SetValueSchoolYearSemester.resources
 C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.Properties.Resources.resources
+C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.ApprovedForm.resources
+C:\Users\Aaron\Desktop\huangwc_desktop\dev.sh_d\導師線上獎懲登錄\obj\Debug\K12.Behavior.DisciplineInput.SimpleTextForm.resources
