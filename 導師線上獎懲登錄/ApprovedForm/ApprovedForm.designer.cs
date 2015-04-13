@@ -41,7 +41,7 @@
             this.colDisciplineCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReturnMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colApproved = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
+            this.colApproved = new DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.批次增加前置詞ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,6 +77,7 @@
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemPanel1 = new DevComponents.DotNetBar.ItemPanel();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.批次待處理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -194,22 +195,28 @@
             // 
             // colApproved
             // 
-            this.colApproved.Checked = true;
-            this.colApproved.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.colApproved.CheckValue = "N";
+            this.colApproved.DropDownHeight = 106;
+            this.colApproved.DropDownWidth = 121;
+            this.colApproved.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colApproved.HeaderText = "核可";
+            this.colApproved.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.colApproved.IntegralHeight = false;
+            this.colApproved.ItemHeight = 17;
             this.colApproved.Name = "colApproved";
-            this.colApproved.Click += new System.EventHandler<System.EventArgs>(this.colApproved_Click);
+            this.colApproved.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colApproved.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.colApproved.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.批次增加前置詞ToolStripMenuItem,
             this.toolStripMenuItem2,
+            this.批次待處理ToolStripMenuItem,
             this.toolStripSeparator2,
             this.toolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 120);
             // 
             // 批次增加前置詞ToolStripMenuItem
             // 
@@ -491,6 +498,13 @@
             this.labelX1.Size = new System.Drawing.Size(209, 23);
             this.labelX1.TabIndex = 29;
             // 
+            // 批次待處理ToolStripMenuItem
+            // 
+            this.批次待處理ToolStripMenuItem.Name = "批次待處理ToolStripMenuItem";
+            this.批次待處理ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.批次待處理ToolStripMenuItem.Text = "批次待處理";
+            this.批次待處理ToolStripMenuItem.Click += new System.EventHandler(this.批次待處理ToolStripMenuItem_Click);
+            // 
             // ApprovedForm
             // 
             this.ClientSize = new System.Drawing.Size(792, 468);
@@ -558,7 +572,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDisciplineCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReturnMessage;
-        private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn colApproved;
+        private DevComponents.DotNetBar.Controls.DataGridViewComboBoxExColumn colApproved;
+        private System.Windows.Forms.ToolStripMenuItem 批次待處理ToolStripMenuItem;
     }
 }
 

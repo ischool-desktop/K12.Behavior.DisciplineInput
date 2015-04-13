@@ -33,6 +33,7 @@ namespace K12.Behavior.DisciplineInput
             _lbgw.RunWorkerAsync();
             ControlEnabled = false;
             this.Text = this.FormText + "(資料讀取中)";
+            colApproved.Items.AddRange(new string[] { "可","不可","" });
         }
         private bool ControlEnabled
         {
@@ -143,7 +144,7 @@ order by class.grade_year,class.display_order,class.class_name");
                         _row.Tag = item;
 
                         _row.Cells[8].Value = "";
-                        _row.Cells[9].Value = false;
+                        _row.Cells[9].Value = "";
                         dataGridViewX1.Rows.Add(_row);
                     }
                     dataGridViewX1.ResumeLayout();
@@ -204,7 +205,7 @@ order by class.grade_year,class.display_order,class.class_name");
         {
             foreach (DataGridViewRow item in dataGridViewX1.SelectedRows)
             {
-                item.Cells[9].Value = true;
+                item.Cells[9].Value = "可";
             }
         }
         //批次不核可
@@ -212,7 +213,15 @@ order by class.grade_year,class.display_order,class.class_name");
         {
             foreach (DataGridViewRow item in dataGridViewX1.SelectedRows)
             {
-                item.Cells[9].Value = false;
+                item.Cells[9].Value = "不可";
+            }
+        }
+        //批次待處理
+        private void 批次待處理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dataGridViewX1.SelectedRows)
+            {
+                item.Cells[9].Value = "";
             }
         }
         //批次調整審查回覆
@@ -236,16 +245,18 @@ order by class.grade_year,class.display_order,class.class_name");
 
             foreach (DataGridViewRow row in dataGridViewX1.Rows)
             {
-                if ((bool)row.Cells[colApproved.Index].Value == true)
+                if ((string)row.Cells[colApproved.Index].Value == "可")
                     approvedCount++;
-                else if ((bool)row.Cells[colApproved.Index].Value == false)
+                else if ((string)row.Cells[colApproved.Index].Value == "不可")
                     notApprovedCount++;
             }
+            if ((approvedCount + notApprovedCount) == 0)
+                return;
             List<string> msg = new List<string>();
             msg.Add("請確認是否儲存以下資料：");
             msg.Add("核可　：\t" + approvedCount + " 筆");
             msg.Add("不核可：\t" + notApprovedCount + " 筆");
-            msg.Add("共　　：\t" + dataGridViewX1.Rows.Count + " 筆");
+            msg.Add("共　　：\t" +(approvedCount+ notApprovedCount) + " 筆");
             if (dataGridViewX1.Rows.Count == 0 || MsgBox.Show(string.Join("\n",msg), MessageBoxButtons.YesNo, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.No)
                 return;
             List<DisciplineRecord> drl = new List<DisciplineRecord>();
@@ -259,8 +270,7 @@ order by class.grade_year,class.display_order,class.class_name");
                 DisciplineRequestRecord drr = item.Tag as DisciplineRequestRecord;
 
                 drr.ReturnMessage = "" + item.Cells[8].Value;
-
-                if ((bool)item.Cells[9].Value == true)
+                if ((string)item.Cells[9].Value == "可")
                 {
                     drr.Status = "1";
                     DisciplineRecord dr = new DisciplineRecord();
@@ -279,11 +289,18 @@ order by class.grade_year,class.display_order,class.class_name");
                     dr.DemeritC = drr.DemeritC;
                     drl.Add(dr);
                     log.Add(dr.RefStudentID + "," + dr.OccurDate + "," + dr.Reason + "," + dr.RegisterDate + "," + dr.SchoolYear + "," + dr.Semester + "," + dr.MeritFlag + "," + dr.MeritA + "," + dr.MeritB + "," + dr.MeritC + "," + dr.DemeritA + "," + dr.DemeritB + "," + dr.DemeritC);
+                    log2.Add(drr.RefStudentId + "," + drr.RefTeacherId + "," + drr.OccurDate + "," + drr.Reason + "," + drr.MeritFlag + "," + drr.MeritA + "," + drr.MeritB + "," + drr.MeritC + "," + drr.DemeritA + "," + drr.DemeritB + "," + drr.DemeritC + "," + drr.ReturnMessage);
+                    drrl.Add(drr);
+                }
+                else if ((string)item.Cells[9].Value == "不可")
+                {
+                    drr.Status = "2";
+                    log2.Add(drr.RefStudentId + "," + drr.RefTeacherId + "," + drr.OccurDate + "," + drr.Reason + "," + drr.MeritFlag + "," + drr.MeritA + "," + drr.MeritB + "," + drr.MeritC + "," + drr.DemeritA + "," + drr.DemeritB + "," + drr.DemeritC + "," + drr.ReturnMessage);
+                    drrl.Add(drr);
                 }
                 else
-                    drr.Status = "2";
-                log2.Add(drr.RefStudentId + "," + drr.RefTeacherId + "," + drr.OccurDate + "," + drr.Reason + "," + drr.MeritFlag + "," + drr.MeritA + "," + drr.MeritB + "," + drr.MeritC + "," + drr.DemeritA + "," + drr.DemeritB + "," + drr.DemeritC + "," + drr.ReturnMessage);
-                drrl.Add(drr);
+                {
+                }
             }
             if (drl.Count > 0)
                 ApplicationLog.Log("核可教師獎懲建議", "新增", "新增獎懲記錄共" + drl.Count + "筆\n明細：\n" + string.Join("\n", log));
@@ -305,5 +322,6 @@ order by class.grade_year,class.display_order,class.class_name");
         {
             _rIsDirty = true;
         }
+
     }
 }
